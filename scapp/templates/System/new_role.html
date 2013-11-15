@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<style type="text/css">
+		.table-list td {border:none;}
+		select{width:80px;}
+		.div-box{border:1px solid #94c1dc;border-bottom:none;background:#efefef;padding:5px;}
+	</style>	
+	<!-- ************************验证样式************************-->
+	<script src="/static/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+	<link href="/static/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
+	
+</head>
+
+<body>	
+	<div class="content">
+		<div class="well place">			
+			<i class="icon-home"></i><a href="#">系统管理</a>/<a href="#">角色权限管理</a>/<a href="#">新增</a>
+		</div>		
+		<div class="row-fluid">
+			<form method="POST" action="/System/new_role">
+				<div style="border:1px solid #94c1dc;">
+					<table class="table-list">
+						<tr>
+							<td class="table-label">角色名称*</td>
+							<td width="36%">
+								<span id="spry_rolename">
+									<input type="text" id="role_name" name="role_name"/>
+									<span class="textfieldRequiredMsg">角色名称不能为空</span>
+								</span>
+							</td>
+							<td class="table-label">角色级别*</td>	
+							<td>
+								<select id="role_level" name="role_level">									
+									<option value="0">正常</option>
+									<option value="1">关注</option>
+									<option value="2">次级</option>
+									<option value="3">可疑</option>
+									<option value="4">损失</option>
+								</select>
+							</td>						
+						</tr>									
+					</table>
+				</div>
+				<span class="point">*为必填字段</span><br/>
+				<input type="submit" class="btn btn-info" value="提交" style="margin:0;"/>
+				<a class="btn btn-info" href="#" style="margin:5px 0;" onclick="iframe('System/jsqxgl/1')">返回</a><br/>
+			
+				<i class="icon-bookmark"></i><span class="titletip">功能权限</span>					
+				<div class="div-box">				
+					<table class="table-list" cellspacing="10" id="uesr-list">			
+						<tr>
+							<td>
+								<b>+ 信息管理</b>
+								<select id="xxgl" name="xxgl" onchange="change_select(this,'xxgl')">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								客户信息管理
+								<select id="khxxgl" name="khxxgl" class="xxgl" >
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷款信息管理
+								<select id="dkxxgl" name="dkxxgl" class="xxgl" >
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>
+						</tr>	
+					</table>
+				</div>
+				<div class="div-box">				
+					<table class="table-list" cellspacing="10" id="uesr-list">			
+						<tr>
+							<td>
+								<b>+ 流程管理</b>
+								<select id="lcgl" name="lcgl" onchange="change_select(this,'lcgl')">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								来访登记
+								<select id="lfdj" name="lfdj" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷款申请
+								<select id="dksq" name="dksq" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷款申请审核
+								<select id="dksqsh" name="dksqsh" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷前调查
+								<select id="dqdc" name="dqdc" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷款审批
+								<select id="dksp" name="dksp" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷款放款
+								<select id="dkfk" name="dkfk" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>
+						</tr>	
+						<tr>							
+							<td>								
+								放款审核
+								<select id="fksh" name="fksh" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								还款登记
+								<select id="hkdj" name="hkdj" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷后变更
+								<select id="dhbg" name="dhbg" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷后变更审核
+								<select id="dhbgsh" name="dhbgsh" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷后管理
+								<select id="dhgl" name="dhgl" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								资产分类
+								<select id="zcfl" name="zcfl" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>
+						</tr>	
+						<tr>							
+							<td>								
+								资产分类审核
+								<select id="zcflsh" name="zcflsh" class="lcgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>
+						</tr>	
+					</table>
+				</div>
+				<div class="div-box">				
+					<table class="table-list" cellspacing="10" id="uesr-list">			
+						<tr>
+							<td>
+								<b>+ 系统工具</b>
+								<select id="xtgj" name="xtgj" onchange="change_select(this,'xtgj')">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								还款计划计算工具
+								<select id="hkjhjsgj" name="hkjhjsgj" class="xtgj">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>							
+						</tr>	
+					</table>
+				</div>
+				<div class="div-box">				
+					<table class="table-list" cellspacing="10" id="uesr-list">			
+						<tr>
+							<td>
+								<b>+ 系统管理</b>
+								<select id="xtgl" name="xtgl" onchange="change_select(this,'xtgl')">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								业务参数配置
+								<select id="ywcspz" name="ywcspz" class="xtgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								接口配置
+								<select id="jkpz" name="jkpz" class="xtgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								日终日结 
+								<select id="rzrj" name="rzrj" class="xtgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								数据字典
+								<select id="sjzd" name="sjzd" class="xtgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								机构管理 
+								<select id="jggl" name="jggl" class="xtgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								使用者管理
+								<select id="syzgl" name="syzgl" class="xtgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>								
+							</td>
+						</tr>
+						<tr>							
+							<td>								
+								角色权限管理
+								<select id="jsqxgl" name="jsqxgl" class="xtgl">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>
+						</tr>	
+					</table>
+				</div>
+				<div style="border:1px solid #94c1dc;" class="div-box">				
+					<table class="table-list" cellspacing="10" id="uesr-list">			
+						<tr>
+							<td>
+								<b>+ 统计报表</b>
+								<select id="tjbb" name="tjbb" onchange="change_select(this,'tjbb')">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								客户
+								<select id="kh" name="kh" class="tjbb">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								贷款根据状态分类
+								<select id="dkgjztfl" name="dkgjztfl" class="tjbb">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								信贷工作流程列表
+								<select id="xdgzlclb" name="xdgzlclb" class="tjbb">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								批次生成报表查询
+								<select id="pcscbbcx" name="pcscbbcx" class="tjbb">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+								总行管理类报表
+								<select id="zhgllbb" name="zhgllbb" class="tjbb">
+									<option value="2">维护</option>
+									<option value="1">查询</option>
+									<option value="0">无权限</option>
+								</select>
+							</td>
+						</tr>	
+					</table>
+				</div>
+			</form>
+		</div><!--/row-fluid -->
+	</div><!--/content -->
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/system.js"></script>
+	<script type="text/javascript">
+		var sprytextfield1 = new Spry.Widget.ValidationTextField("spry_rolename", "none", {validateOn:["blur"]});
+	</script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<style type="text/css">
+		input[type=text]{width:130px;}
+		input.long{width:92%;}
+		input.btn-mini{width:20px;margin-top:0px;}
+		textarea{width:80%;}
+	</style>
+</head>
+
+<body>	
+	<form class="content">
+	<!--*****************************************资产负债表**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">损益表</span>
+		<div class="divBorder">
+			<table class="table-list" id="yfzk">
+				<tr class="center">
+					<td class="table-label" rowspan="2" style="width:160px;">项目</td>
+					<td>好月份</td>
+					<td>一般月份</td>
+					<td>差月份</td>	
+					<td>平均月份 </td>								
+				</tr>		
+				<tr class="center">
+					<td>
+						<input type="text" id=""/><br/>
+						月份数<input type="text" id="" style="width:80px"/>
+					</td>
+					<td>
+						<input type="text" id=""/><br/>
+						月份数<input type="text" id="" style="width:80px"/>
+					</td>
+					<td>
+						<input type="text" id=""/><br/>
+						月份数<input type="text" id="" style="width:80px"/>
+					</td>
+					<td><input type="text" id=""/></td>									
+				</tr>													
+			</table>
+		</div>
+	<!--*****************************************收入**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">收入</span>	
+		<input type="button" value="+" onclick="addTd('sr','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<input type="button" value="-" onclick="removeTd('sr','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<div class="divBorder">
+			<table class="table-list" id="sr">
+				<tr class="center">
+					<td style="width:166px;"><input type="text" id="" value="一店收入"/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>								
+				</tr>	
+				<tr class="center">
+					<td><input type="text" id="" value="二店收入"/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>													
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="yszk">
+				<tr class="center">
+					<td style="width:166px;">总额（1）</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>													
+			</table>
+		</div>	
+	<!--*****************************************可变成本**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">可变成本</span>	
+		<input type="button" value="+" onclick="addTd('kbcb','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<input type="button" value="-" onclick="removeTd('kbcb','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<div class="divBorder">
+			<table class="table-list" id="kbcb">
+				<tr class="center">
+					<td style="width:166px;"><input type="text" id="" value="成本"/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>								
+				</tr>																	
+			</table>
+		</div>
+		<div class="divBorder">
+			<table class="table-list">
+				<tr class="center">
+					<td style="width:166px;">总额（2）</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>
+				<tr class="center">
+					<td style="width:166px;">毛利（3）=（1）-（2）</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>														
+			</table>
+		</div>	
+	<!--*****************************************固定支出**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">固定支出</span>	
+		<div class="divBorder">
+			<table class="table-list" id="ch">
+				<tr class="center">
+					<td style="width:166px;">工资</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>							
+				</tr>		
+				<tr class="center">
+					<td style="width:166px;">租金</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>	
+				<tr class="center">
+					<td style="width:166px;">招待费</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>	
+				<tr class="center">
+					<td style="width:166px;">交通费</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>	
+				<tr class="center">
+					<td style="width:166px;">水电费</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>	
+				<tr class="center">
+					<td style="width:166px;">广告及维护费</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>	
+				<tr class="center">
+					<td style="width:166px;">通讯费</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>	
+				<tr class="center">
+					<td style="width:166px;">税金</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>												
+			</table>
+		</div>	
+	<!--*****************************************其他费用**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">其他费用</span>	
+		<input type="button" value="+" onclick="addTd('qtfy','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<input type="button" value="-" onclick="removeTd('qtfy','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<div class="divBorder">
+			<table class="table-list" id="qtfy">
+				<tr class="center">
+					<td style="width:166px;"><input type="text" id="" value="洗衣费"/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>								
+				</tr>																
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="yszk">
+				<tr class="center">
+					<td style="width:166px;">分期还款</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>
+				<tr class="center">
+					<td>总额（4）</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>
+				<tr class="center">
+					<td>净利润（5）=（3）-（4）</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>														
+			</table>
+		</div>					
+	<!--*****************************************其他**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">其他</span>	
+		<div class="divBorder">
+			<table class="table-list">
+				<tr class="center">
+					<td style="width:166px;">家庭开支</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>
+				<tr class="center">
+					<td style="width:166px;">分期还款（私人贷款）</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>									
+				</tr>														
+			</table>
+		</div>	
+	<!--*****************************************其他支出**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">其他支出</span>	
+		<input type="button" value="+" onclick="addTd('qtzc','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<input type="button" value="-" onclick="removeTd('qtzc','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<div class="divBorder">
+			<table class="table-list" id="qtzc">
+				<tr class="center">
+					<td style="width:166px;"><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>								
+				</tr>																
+			</table>
+		</div>	
+	<!--*****************************************其他收入**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">其他收入</span>	
+		<input type="button" value="+" onclick="addTd('qtsr','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<input type="button" value="-" onclick="removeTd('qtsr','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<div class="divBorder">
+			<table class="table-list" id="qtsr">
+				<tr class="center">
+					<td style="width:166px;"><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>								
+				</tr>																
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="qtsr">
+				<tr class="center">
+					<td style="width:166px;">月可支配资金</td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>	
+					<td><input type="text" id=""/></td>								
+				</tr>	
+				<tr class="center">
+					<td style="width:166px;">其他影响现金流的因素</td>
+					<td colspan="4"><input type="text" id="" class="long"/></td>								
+				</tr>																
+			</table>
+		</div>
+		<div class="divBorder">
+			<table class="table-list" id="qtsr">
+				<tr class="center">
+					<td style="width:166px;" rowspan="2">前6个月的销售额 </td>
+					<td><input type="text" id="" style="width:30px;"/>月</td>
+					<td><input type="text" id="" style="width:30px;"/>月</td>
+					<td><input type="text" id="" style="width:30px;"/>月</td>
+					<td><input type="text" id="" style="width:30px;"/>月</td>
+					<td><input type="text" id="" style="width:30px;"/>月</td>
+					<td><input type="text" id="" style="width:30px;"/>月</td>							
+				</tr>	
+				<tr class="center">
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>								
+				</tr>																
+			</table>
+		</div>
+	<!--*****************************************主营业务利润分析**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">主营业务利润分析</span>	
+		<input type="button" value="+" onclick="addTd('zyywlrfx','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<input type="button" value="-" onclick="removeTd('zyywlrfx','dqdcWd_syb')" class="btn btn-info btn-mini"/>
+		<div class="divBorder">
+			<table class="table-list" id="zyywlrfx">
+				<tr class="center">
+					<td class="table-label">产品种类</td>
+					<td class="table-label">进价（元）</td>
+					<td class="table-label">售价（元）</td>
+					<td class="table-label">利润（元）</td>
+					<td class="table-label">销售比率%</td>
+					<td class="table-label">毛利率% </td>							
+				</tr>
+				<tr class="center">
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/></td>
+					<td><input type="text" id="" style="width:100px;"/>%</td>
+					<td><input type="text" id="" style="width:100px;"/>%</td>							
+				</tr>																
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="zyywlrfx">
+				<tr class="center">
+					<td>加权利润率 </td>
+					<td><input type="text" id=""/></td>
+					<td>月分期还款额/月销售额 </td>
+					<td><input type="text" id=""/></td>
+					<td>月分期还款额/月可支配资金 </td>
+					<td><input type="text" id=""/></td>				
+				</tr>
+				<tr>
+					<td class="center">成本结构分析 </td>
+					<td colspan="5"><textarea id="" class="long"></textarea></td>							
+				</tr>																
+			</table>
+		</div>	
+	<!--*****************************************交叉检验**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">交叉检验</span>	
+		<div class="divBorder">
+			<table class="table-list">
+				<tr>
+					<td rowspan="3">权益检验</td>
+					<td>初始权益*</td>
+					<td><input type="text" id=""/></td>
+					<td>期间利润*</td>	
+					<td><input type="text" id=""/></td>		
+					<td>期间注资*</td>	
+					<td><input type="text" id=""/></td>								
+				</tr>
+				<tr>
+					<td>期内提取的资金*</td>
+					<td><input type="text" id=""/></td>
+					<td>-折旧</td>	
+					<td><input type="text" id=""/></td>		
+					<td>+升值*</td>	
+					<td><input type="text" id=""/></td>									
+				</tr>	
+				<tr>
+					<td>应有权益</td>
+					<td><input type="text" id=""/></td>
+					<td></td>	
+					<td></td>		
+					<td></td>	
+					<td></td>									
+				</tr>
+				<tr>
+					<td>营业额检验</td>
+					<td colspan="6"><textarea id="" class="long"></textarea></td>								
+				</tr>	
+				<tr>
+					<td>成本结构分析</td>
+					<td colspan="6"><textarea id="" class="long"></textarea></td>								
+				</tr>
+				<tr>
+					<td>权益交叉检验说明</td>
+					<td colspan="6"><textarea id="" class="long"></textarea></td>								
+				</tr>												
+			</table>
+		</div>	
+		<input type="submit" value="保存" class="btn btn-info"/>
+		<input type="submit" value="打印" class="btn btn-info"/>
+	</form>
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/process.js"></script>
+	<script type="text/javascript"></script>
+</body>
+</html>

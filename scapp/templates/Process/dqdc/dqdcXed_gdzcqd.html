@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<link href="/static/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+	<style type="text/css">
+		
+	</style>
+</head>
+
+<body onload="datepicker()">	
+	<div class="content">
+		<div class="tabbable">
+			<ul class="nav nav-tabs">
+				<li class="active"><a href="#tab1" id="fdcxd" data-toggle="tab" onclick="doubleIframe('dqdcXed_gdzcqd');">房地产详单</a></li>
+				<li><a href="#tab2" data-toggle="tab" onclick="doubleIframe('dqdcXed_gdzcqd');">设备及器材详单</a></li>
+				<li><a href="#tab3" data-toggle="tab" onclick="doubleIframe('dqdcXed_gdzcqd');">车辆详单</a></li>
+			</ul>						
+			<div class="tab-content">
+				<!--房地产详单-->
+				<div class="tab-pane active" id="tab1">
+					<!--*****************************************房地产详单**************************************************-->
+					<div id="FDC">
+						<i class="icon-bookmark"></i><span class="titletip">房地产详单</span>
+						<div style="margin-bottom:5px;">
+							<a type="button" class="btn btn-info" href="#" onclick="$('#FDC').hide();$('#newFDC').show();doubleIframe('dqdcXed_gdzcqd');">新增</a><!--*滚动条问题*-->
+						</div>
+						<div style="border:1px solid #94c1dc;">	
+							<table class="table-list" cellspacing="10" id="uesr-list">				
+								<tr>
+									<th><input type="button" class="btn btn-info btn-mini" value="反选" style="margin:0;" onclick="ChkAllClick()"/></th>
+									<th>房地产</th>         
+									<th>座落</th>
+									<th>建筑面积</th>
+									<th>土地面积</th>							
+									<th>使用年限</th>
+									<th>土地性质</th>
+									<th>购置价或造价(元)</th>							
+									<th>总价(元)</th>
+									<th>备注</th>
+									<th>操作</th>
+								</tr>
+								<tr class="center">
+									<td><input type="checkbox" onclick="changeColor(this)" name="checkbox"/></td>
+									<td><a href="#" onclick="">上和花园</a></td>
+									<td>东四环</td>
+									<td>132.00</td>
+									<td>100.00</td>
+									<td>70</td>
+									<td>国有出让</td>
+									<td>350,000</td>
+									<td>1,350,000</td>
+									<td></td>
+									<td>
+										<input type="button" class="btn btn-danger btn-mini" value="删除"/>	
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2">合计</th> 
+									<th></th>        
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th>350,000</th>
+									<th>1,350,000</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</table>
+						</div>
+						<div class="page-div">
+							<span style="CURSOR: pointer">&lt;&lt;</span>
+							&#160;<input type="text" value="1"/>
+							&#160;共&#160;<font color="#0088cc">1</font>&#160;页&#160;
+							<span style="CURSOR: pointer">&gt;&gt;</span>
+						</div>
+					</div>
+					<!--*****************************************新建房地产**************************************************-->
+					<div id="newFDC" style="display:none;">
+						<form>	
+							<!--*****************************************房地产信息**************************************************-->
+							<i class="icon-bookmark"></i><span class="titletip">房地产信息</span>		
+							<div style="border:1px solid #94c1dc;">	
+								<table class="table-list" id="">	
+									<tr>
+										<td class="table-label">房地产*</td>
+										<td><input type="text" id=""/></td>
+										<td class="table-label">座落*</td>
+										<td><input type="text" id=""/></td>
+									</tr>
+									<tr>
+										<td class="table-label">建筑面积*</td>
+										<td><input type="text" id=""/></td>
+										<td class="table-label">土地面积*</td>
+										<td><input type="text" id=""/></td>
+									</tr>
+									<tr>
+										<td class="table-label">使用年限*</td>
+										<td><input type="text" id=""/></td>
+										<td class="table-label">土地性质*</td>
+										<td>
+											<select id="">
+												<option>国有出让</option>
+											</select>
+										</td>
+									</tr>				
+									<tr>
+										<td class="table-label">购置价或造价(元)*</td>
+										<td><input type="text" id="" /></td>
+										<td class="table-label">现价(元)*</td>
+										<td><input type="text" id="" /></td>
+									</tr>
+									<tr>
+										<td class="table-label">备注</td>
+										<td colspan="3"><input type="text" id="" class="long"/></td>
+									</tr>
+								</table>
+							</div>
+							<span class="point">*为必填字段</span><br/>
+							<input type="submit" value="提交" class="btn btn-info"/>
+							<input type="button" value="返回" class="btn btn-info" onclick="$('#newFDC').hide();$('#FDC').show();doubleIframe('dqdcXed_gdzcqd');"/>
+						</form>
+					</div>
+				</div><!--/房地产详单-->
+
+				<!--设备及器材详单-->
+				<div class="tab-pane" id="tab2">								
+					<!--*****************************************设备及器材详单**************************************************-->
+					<div id="SBXD">
+						<i class="icon-bookmark"></i><span class="titletip">设备及器材详单</span>
+						<div style="margin-bottom:5px;">
+							<a type="button" class="btn btn-info" href="#" onclick="$('#SBXD').hide();$('#newSBXD').show();doubleIframe('dqdcXed_gdzcqd');">新增</a>					
+						</div>
+						<div style="border:1px solid #94c1dc;">	
+							<table class="table-list" cellspacing="10" id="uesr-list">
+								<tr>
+									<th><input type="button" class="btn btn-info btn-mini" value="反选" style="margin:0;" onclick="ChkAllClick()"/></th>
+									<th>设备及器材</th>
+									<th>数量</th>
+									<th>型号或品牌</th>
+									<th>购置时间</th>							
+									<th>生产年月</th>
+									<th>外观现状评价</th>							
+									<th>总价(元)</th>
+									<th>备注</th>
+									<th>操作</th>
+								</tr>
+								<tr class="center">
+									<td><input type="checkbox" onclick="changeColor(this)" name="checkbox"/></td>
+									<td><a href="">缝纫机</a></td>
+									<td>1,000.00</td>        
+									<td>胜佳</td>
+									<td>2008-01-01</td>
+									<td>2007-12-01</td>
+									<td>设备9成新</td>
+									<td>350,000</td>
+									<td></td>
+									<td>
+										<input type="button" class="btn btn-danger btn-mini" value="删除"/>	
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2">合计</th> 
+									<th></th>        
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th>350,000</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</table>
+						</div>
+						<div class="page-div">
+							<span style="CURSOR: pointer">&lt;&lt;</span>
+							&#160;<input type="text" value="1"/>
+							&#160;共&#160;<font color="#0088cc">1</font>&#160;页&#160;
+							<span style="CURSOR: pointer">&gt;&gt;</span>
+						</div>
+					</div>
+					<!--*****************************************新建设备及器材详单**************************************************-->
+					<div id="newSBXD" style="display:none;">
+						<form>	
+							<!--*****************************************设备及器材详单**************************************************-->
+							<i class="icon-bookmark"></i><span class="titletip">设备及器材信息</span>		
+							<div style="border:1px solid #94c1dc;">	
+								<table class="table-list" id="">	
+									<tr>
+										<td class="table-label">设备及器材*</td>
+										<td><input type="text" id="" /></td>
+										<td class="table-label">数量*</td>
+										<td><input type="text" id="" /></td>
+									</tr>
+									<tr>
+										<td class="table-label">型号或品牌*</td>
+										<td><input type="text" id="" /></td>
+										<td class="table-label">购置时间*</td>
+										<td><input type="text" id="" class="datepicker"/></td>
+									</tr>
+									<tr>
+										<td class="table-label">生产年月*</td>
+										<td><input type="text" id="" class="datepicker"/></td>
+										<td class="table-label">总价(元)*</td>	
+										<td><input type="text" id=""/></td>						
+									</tr>				
+									<tr>
+										<td class="table-label">外观现状评价*</td>
+										<td colspan="3"><input type="text" id="" class="long"/></td>
+									</tr>				
+									<tr>	
+										<td class="table-label">备注*</td>		
+										<td colspan="3"><input type="text" id="" class="long"/></td>					
+									</tr>
+								</table>
+							</div>
+							<span class="point">*为必填字段</span><br/>
+							<input type="submit" value="提交" class="btn btn-info"/>
+							<input type="button" value="返回" class="btn btn-info" onclick="$('#newSBXD').hide();$('#SBXD').show();doubleIframe('dqdcXed_gdzcqd');"/>
+						</form>
+					</div>
+				</div><!--设备及器材详单-->		
+
+				<!--车辆详单-->
+				<div class="tab-pane" id="tab3">								
+					<!--*****************************************车辆详单**************************************************-->
+					<div id="CLXD"> 
+						<i class="icon-bookmark"></i><span class="titletip">车辆详单</span>
+						<div style="margin-bottom:5px;">
+							<a type="button" class="btn btn-info" href="#" onclick="$('#CLXD').hide();$('#newCLXD').show();doubleIframe('dqdcXed_gdzcqd');">新增</a>					
+						</div>
+						<div style="border:1px solid #94c1dc;">	
+							<table class="table-list" cellspacing="10" id="uesr-list">
+								<tr>
+									<th><input type="button" class="btn btn-info btn-mini" value="反选" style="margin:0;" onclick="ChkAllClick()"/></th>
+									<th>车辆</th> 
+									<th>户主</th>
+									<th>型号或品牌</th>
+									<th>购置时间</th>							
+									<th>购置价格(元)</th>
+									<th>生产年月</th>
+									<th>外观现状评价</th>							
+									<th>总价(元)</th>
+									<th>备注</th>
+									<th>操作</th>
+								</tr>
+								<tr class="center">
+									<td><input type="checkbox" onclick="changeColor(this)" name="checkbox"/></td>
+									<td><a href="">Jetta</a></td>
+									<td>张三</td>        
+									<td>大众-捷达</td>
+									<td>2008-01-01</td>
+									<td>98,000</td>
+									<td>2007-11-01</td>
+									<td>7成新</td>
+									<td>58,000</td>
+									<td></td>
+									<td>
+										<input type="button" class="btn btn-danger btn-mini" value="删除"/>	
+									</td>
+								</tr>
+								<tr>
+									<th colspan="2">合计</th> 
+									<th></th>        
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th></th>
+									<th>58,000</th>
+									<th></th>
+									<th></th>
+								</tr>
+							</table>
+						</div>
+						<div class="page-div">
+							<span style="CURSOR: pointer">&lt;&lt;</span>
+							&#160;<input type="text" value="1"/>
+							&#160;共&#160;<font color="#0088cc">1</font>&#160;页&#160;
+							<span style="CURSOR: pointer">&gt;&gt;</span>
+						</div>
+					</div>
+					<!--*****************************************新建车辆详单**************************************************-->
+					<div id="newCLXD" style="display:none;">
+						<form>	
+							<!--*****************************************车辆信息**************************************************-->
+							<i class="icon-bookmark"></i><span class="titletip">车辆信息</span>		
+							<div style="border:1px solid #94c1dc;">	
+								<table class="table-list" id="">	
+									<tr>
+										<td class="table-label">设备及器材*</td>
+										<td><input type="text" id="" /></td>
+										<td class="table-label">数量*</td>
+										<td><input type="text" id="" /></td>
+									</tr>
+									<tr>
+										<td class="table-label">型号或品牌*</td>
+										<td><input type="text" id="" /></td>
+										<td class="table-label">购置时间*</td>
+										<td><input type="text" id="" class="datepicker"/></td>
+									</tr>
+									<tr>
+										<td class="table-label">生产年月*</td>
+										<td><input type="text" id="" class="datepicker"/></td>
+										<td class="table-label">总价(元)*</td>	
+										<td><input type="text" id=""/></td>						
+									</tr>				
+									<tr>
+										<td class="table-label">外观现状评价*</td>
+										<td colspan="3"><input type="text" id="" class="long"/></td>
+									</tr>				
+									<tr>	
+										<td class="table-label">备注*</td>		
+										<td colspan="3"><input type="text" id="" class="long"/></td>					
+									</tr>
+								</table>
+							</div>
+							<span class="point">*为必填字段</span><br/>
+							<input type="submit" value="提交" class="btn btn-info"/>
+							<input type="button" value="返回" class="btn btn-info" onclick="$('#newCLXD').hide();$('#CLXD').show();doubleIframe('dqdcXed_gdzcqd');"/>
+						</form>
+					</div>
+				</div><!--车辆详单-->						
+			</div><!-- tabContent -->
+		</div>
+	
+		
+		<input type="button" value="打印" class="btn btn-info"/>
+	</div>
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/process.js"></script>
+	
+</body>
+</html>

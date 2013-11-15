@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<link href="/static/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+	<style type="text/css">
+		label{font-size: 12px;}	
+		textarea{width:80%;}
+	</style>
+</head>
+
+<body onload="datepicker()">	
+	<form class="content">
+	<!--*****************************************基本情况**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">基本情况&nbsp;&nbsp;&nbsp;客户编号:<span id="customer_no">1</span></span>
+		<div class="divBorder">
+			<table class="table-list">
+				<tr>
+					<td class="table-label">企业名称</td>
+					<td><input type="text" id=""/></td>
+					<td class="table-label">经营范围</td>
+					<td><input type="text" id=""/></td>
+					<td class="table-label">组织类型</td>
+					<td>
+						<select id="">
+							<option>---请选择---</option>
+							<option>个体工商户</option>
+						</select>
+					</td>	
+					<td class="table-label">法人代表</td>
+					<td><input type="text" id="" style="width:100px;"/></td>				
+				</tr>		
+				<tr>
+					<td class="table-label">开业时间</td>
+					<td><input type="text" id="" class="datepicker"/></td>
+					<td class="table-label">经营地址</td>
+					<td><input type="text" id=""/></td>
+					<td class="table-label">联系方式</td>
+					<td><input type="text" id=""/></td>	
+					<td class="table-label">雇员人数</td>
+					<td><input type="text" id="" style="width:100px;"/></td>				
+				</tr>													
+			</table>
+		</div>	
+	<!--*****************************************申请信息**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">申请信息</span>
+		<div class="divBorder">
+			<table class="table-list">
+				<tr>
+					<td class="table-label">贷款金额(元)*</td>
+					<td><input type="text" id="" disabled/></td>
+					<td class="table-label">贷款期限(月)*</td>
+					<td><input type="text" id="" disabled/>月</td>
+					<td class="table-label">月还款能力(元)*</td>
+					<td><input type="text" id="" disabled/></td>				
+				</tr>		
+				<tr>
+					<td class="table-label">贷款用途*</td>
+					<td>
+						<select id="" disabled>
+							<option>流动资金贷款</option>
+						</select>
+					</td>
+					<td class="table-label">详细说明</td>
+					<td colspan="3"><input type="text" id="" class="long" disabled/></td>								
+				</tr>
+				<tr>
+					<td class="table-label">还款来源*</td>
+					<td colspan="5"><input type="text" id="" class="long" disabled/></td>								
+				</tr>														
+			</table>
+		</div>			
+	<!--*****************************************信贷历史**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">信贷历史</span>
+		<input type="button" value="+" onclick="addTd('xdls','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 7px;margin-top:0px;"/>
+		<input type="button" value="-" onclick="removeTd('xdls','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 9px;margin-top:0px;"/>
+		<div class="divBorder">
+			<table id="xdls" class="table-list">
+				<tr>
+					<th>融资来源</th>
+					<th>贷款金额(元)</th>
+					<th>期限</th>							
+					<th>用途</th>
+					<th>发放日期</th>
+					<th>余额(元)</th>		
+					<th>担保</th>
+					<th>逾期信息</th>									
+				</tr>
+				<tr class="center"><!--后期Js中要增加ID字段-->
+					<td><input type="text" id="" class="tbInput"/></td>
+					<td><input type="text" id="" class="tbInput"/></td>							
+					<td><input type="text" id="" class="tbInput"/></td>	
+					<td><input type="text" id="" class="tbInput"/></td>
+					<td><input type="text" id="" class="tbInput"/></td>	
+					<td><input type="text" id="" class="tbInput"/></td>	
+					<td><input type="text" id="" class="tbInput"/></td>
+					<td><input type="text" id="" class="tbInput"/></td>											
+				</tr>
+			</table>
+		</div>
+	<!--*****************************************共同借款人**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">共同借款人</span>
+		<input type="button" value="+" onclick="addTd('gtjkr','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 7px;margin-top:0px;"/>
+		<input type="button" value="-" onclick="removeTd('gtjkr','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 9px;margin-top:0px;"/>
+		<div class="divBorder">
+			<table id="gtjkr" class="table-list">
+				<tr class="font-small">
+					<th>姓名</th>
+					<th>与客户关系</th>
+					<th>身份证号码</th>							
+					<th>家庭电话</th>
+					<th>主营业务或职务（如受雇与别人）</th>
+					<th>经营地址或工作单位地址</th>		
+					<th>主要资产</th>
+					<th>月收入</th>									
+				</tr>
+				<tr class="center"><!--后期Js中要增加ID字段-->
+					<td>
+						<select id="" style="width:80px;">
+							<option>吕淑珍</option>
+						</select>
+					</td>
+					<td><span id="">亲戚</span></td>							
+					<td><span id=""> 10110119700216305x </span></td>	
+					<td><span id=""> 01062221188 </span></td>
+					<td><input type="text" id="" style="width:100px;"/></td>	
+					<td><input type="text" id="" style="width:130px;"/></td>	
+					<td><input type="text" id="" style="width:90px;"/></td>
+					<td><input type="text" id="" style="width:90px;"/></td>											
+				</tr>
+			</table>
+		</div>
+		
+	<!--*****************************************担保人**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">担保人</span>
+		<input type="button" value="+" onclick="addTd('dbr','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 7px;margin-top:0px;"/>
+		<input type="button" value="-" onclick="removeTd('dbr','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 9px;margin-top:0px;"/>
+		<div class="divBorder">
+			<table id="dbr" class="table-list">
+				<tr class="font-small">
+					<th>姓名</th>
+					<th>与客户关系</th>
+					<th>身份证号码</th>							
+					<th>家庭电话</th>
+					<th>主营业务或职务（如受雇与别人）</th>
+					<th>经营地址或工作单位地址</th>		
+					<th>主要资产</th>
+					<th>月收入</th>									
+				</tr>
+				<tr class="center"><!--后期Js中要增加ID字段-->
+					<td>
+						<select id="" style="width:80px;">
+							<option>金亮</option>
+						</select>
+					</td>
+					<td><span id="">朋友</span></td>							
+					<td><span id=""> 10110119700216305x </span></td>	
+					<td><span id=""> 01062221188 </span></td>
+					<td><input type="text" id="" style="width:100px;"/></td>	
+					<td><input type="text" id="" style="width:130px;"/></td>	
+					<td><input type="text" id="" style="width:90px;"/></td>
+					<td><input type="text" id="" style="width:90px;"/></td>											
+				</tr>
+			</table>
+		</div>
+		
+	<!--*****************************************建议抵押物**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">建议抵押物</span>
+		<input type="button" value="+" onclick="addTd('jydyw','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 7px;margin-top:0px;"/>
+		<input type="button" value="-" onclick="removeTd('jydyw','dqdcWd_jbqk')" class="btn btn-info btn-mini" style="padding:0 9px;margin-top:0px;"/>
+		<div class="divBorder">
+			<table id="jydyw" class="table-list">
+				<tr>
+					<th>物品名称</th>
+					<th>所有者、地址</th>
+					<th>描述</th>							
+					<th>登记号</th>
+					<th>估价(元)</th>
+					<th>抵押(元)</th>		
+					<th width="30px">质押</th>								
+				</tr>
+				<tr class="center"><!--后期Js中要增加ID字段-->
+					<td>
+						<select id="" style="width:120px;">
+							<option>自住用房</option>
+						</select>
+					</td>		
+					<td><input type="text" id="" class="tbInput"/></td>				
+					<td><input type="text" id="" class="tbInput"/></td>	
+					<td><input type="text" id="" class="tbInput"/></td>	
+					<td><input type="text" id="" class="tbInput"/></td>
+					<td><input type="text" id="" class="tbInput"/></td>
+					<td><input type="checkbox" id="" /></td>													
+				</tr>
+			</table>
+		</div>
+		<div class="divBorder">
+			<table class="table-list">				
+				<tr>
+					<td class="table-label" style="font-size:12px;">客户信息收集与核实</td>
+					<td class="font-small">
+						<label><input type="checkbox" id="" />营业执照</label>
+						<label><input type="checkbox" id="" />房产证</label>
+						<label><input type="checkbox" id="" />租赁合同</label>
+						<label><input type="checkbox" id="" />供销即采购合同</label>
+						<label><input type="checkbox" id="" />账单</label>
+						<label><input type="checkbox" id="" />存货清单</label>
+						<label><input type="checkbox" id="" />银行存款账户</label>
+						<label><input type="checkbox" id="" />现金</label>
+						<label><input type="checkbox" id="" />其他<input type="text" style="width:80px;"/></label>
+					</td>											
+				</tr>
+			</table>
+		</div>
+	<!--*****************************************是否同意发放**************************************************-->
+		<label onclick="$('#jyff').show();$('#jyfj').hide();doubleIframe('dqdcWd_jbqk');">
+			<input type="radio" id="" name="yes"/>建议发放
+		</label>
+		<label onclick="$('#jyfj').show();$('#jyff').hide();doubleIframe('dqdcWd_jbqk');">
+			<input type="radio" id="" name="yes"/>建议否决
+		</label><br/>	
+	<!--*****************************************调查结论**************************************************-->
+		<div class="divBorder" id="jyff" style="display:none;">
+			<table class="table-list">				
+				<tr>
+					<td class="table-label" rowspan="3" style="width:60px;">调查结论</td>
+					<td class="table-label" style="width:80px;">金额（元）*</td>
+					<td><input type="text" id="" style="width:100px;"/></td>	
+					<td class="table-label" style="width:50px;">期限*</td>
+					<td><input type="text" id="" style="width:20px;"/>月</td>	
+					<td class="table-label" style="width:50px;">利率*</td>
+					<td>
+						<select>
+							<option>优惠（12.0000%）</option>
+							<option>优惠1（12.1500%）</option>
+						</select>
+					</td>
+					<td class="table-label" style="width:110px;">月还款额（元）*</td>
+					<td><input type="text" id="" style="width:100px;"/></td>										
+				</tr>
+				<tr>
+					<td class="table-label" style="width:80px;">所属行业</td>
+					<td colspan="7">
+						<select>
+							<option>农林木鱼业</option>
+						</select>
+					</td>															
+				</tr>
+				<tr>
+					<td class="table-label" style="width:80px;">建议理由/发放条件</td>
+					<td colspan="7"><textarea id=""></textarea></td>															
+				</tr>
+			</table>
+		</div>
+	<!--*****************************************调查结论**************************************************-->
+		<div class="divBorder" id="jyfj" style="display:none;">
+			<table class="table-list">				
+				<tr>
+					<td class="table-label" rowspan="3" style="width:60px;">调查结论</td>					
+					<td class="table-label" style="width:80px;">否决原因</td>
+					<td colspan="7"><textarea id=""></textarea></td>															
+				</tr>
+			</table>
+		</div>
+		<input type="submit" value="保存" class="btn btn-info"/>
+		<input type="submit" value="打印" class="btn btn-info"/>
+	</form>
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/process.js"></script>
+	
+</body>
+</html>

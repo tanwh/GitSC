@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<link href="/static/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+	<style type="text/css">		
+		textarea{width:80%;}		
+	</style>
+</head>
+
+<body onload="datepicker()">	
+	<form class="content">
+	<!--*****************************************账款清单**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">帐款详单</span>
+		<div id="ZKXD">
+			<div style="margin-bottom:5px;">
+				<a type="button" class="btn btn-info" href="#" onclick="$('#ZKXD').hide();$('#newZKXD').show();doubleIframe('dqdcXed_zkqd');">新增</a><!--*滚动条问题*-->
+			</div>
+			<div style="border:1px solid #94c1dc;">	
+				<table class="table-list" cellspacing="10" id="uesr-list">				
+					<tr>
+						<th><input type="button" class="btn btn-info btn-mini" value="反选" style="margin:0;" onclick="ChkAllClick()"/></th>
+						<th>对象名称</th>        
+						<th>原始金额(元)</th>
+						<th>发生日期</th>
+						<th>约定到期日</th>							
+						<th>现值(元)</th>
+						<th>平均账期</th>						
+						<th>交易频率</th>
+						<th>分析期内的交易额(元)</th>						
+						<th>支付方式</th>
+						<th>操作</th>
+					</tr>   
+					<tr class="center">
+						<td><input type="checkbox" onclick="changeColor(this)" name="checkbox"/></td>
+						<td><a href="#" onclick="">XXXX公司应收账</a></td>
+						<td>20,000.00</td>
+						<td>2008-01-11</td>
+						<td>2008-02-11</td>
+						<td>20,000.00</td>
+						<td>30</td>
+						<td>月</td>
+						<td>20,000.00</td>
+						<td>现金</td>
+						<td>
+							<input type="button" class="btn btn-danger btn-mini" value="删除"/>	
+						</td>
+					</tr>					
+				</table>
+			</div>
+			<div class="page-div">
+				<span style="CURSOR: pointer">&lt;&lt;</span>
+				&#160;<input type="text" value="1"/>
+				&#160;共&#160;<font color="#0088cc">1</font>&#160;页&#160;
+				<span style="CURSOR: pointer">&gt;&gt;</span>
+			</div>
+		</div>
+		<!--*****************************************新建存货清单**************************************************-->
+		<div id="newZKXD" style="display:none;">
+			<form>	
+				<div style="border:1px solid #94c1dc;">	
+					<table class="table-list" id="">	
+						<tr>
+							<td class="table-label" style="width:150px;">对象名称*</td>
+							<td><input type="text" id=""/></td>
+							<td class="table-label" style="width:150px;">原始金额*</td>
+							<td><input type="text" id=""/></td>
+						</tr>
+						<tr>
+							<td class="table-label">发生日期*</td>
+							<td><input type="text" id="" class="datepicker"/></td>
+							<td class="table-label">约定到期日*</td>
+							<td><input type="text" id="" class="datepicker"/></td>
+						</tr>
+						<tr>
+							<td class="table-label">现值(元)*</td>							
+							<td><input type="text" id="" /></td>
+							<td class="table-label">合作历史</td>
+							<td><input type="text" id="" /></td>
+						</tr>
+						<tr>
+							<td class="table-label">平均账期</td>							
+							<td><input type="text" id="" /></td>
+							<td class="table-label">交易频率</td>
+							<td>
+								<select id="">
+									<option>---请选择---</option>
+									<option>周</option>
+									<option>月</option>
+									<option>季</option>
+									<option>年</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="table-label">分析期内的交易额(元)*</td>							
+							<td><input type="text" id="" /></td>
+							<td class="table-label">支付方式</td>
+							<td>
+								<select id="">
+									<option>---请选择---</option>
+									<option>现金</option>
+									<option>预付款</option>
+									<option>赊账</option>
+									<option>短期票据</option>
+									<option>长期票据</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="table-label">信息来源</td>	
+							<td>
+								<select id="">
+									<option>---请选择---</option>
+									<option>报刊</option>
+									<option>电视</option>
+								</select>
+							</td>						
+							<td class="table-label">其它信息</td>
+							<td><input type="text" id="" class="long"/></td>
+						</tr>
+					</table>
+				</div>
+				<span class="point">*为必填字段</span><br/>
+				<input type="submit" value="提交" class="btn btn-info"/>
+				<input type="button" value="返回" class="btn btn-info" onclick="$('#newZKXD').hide();$('#ZKXD').show();doubleIframe('dqdcXed_zkqd');"/>
+			</form>
+		</div>
+	</form>
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/process.js"></script>
+	<script type="text/javascript"></script>
+</body>
+</html>

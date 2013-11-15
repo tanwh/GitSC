@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<style type="text/css">
+		.add td{text-align:left;}
+		input.btn-mini{width:20px;}
+		textarea{width:80%;}
+	</style>
+</head>
+
+<body>	
+	<form class="content">
+	<!--*****************************************资产负债表**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">资产负债表</span>
+		<div class="divBorder">
+			<table class="table-list" id="yfzk">
+				<tr>
+					<td class="table-label">现金及银行存款(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('yfzk','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('yfzk','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+					</td>
+					<td class="table-label">应付账款(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('yfzk','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('yfzk','dqdcWd_zcfzb')" class="btn btn-info btn-mini"/>
+					</td>								
+				</tr>		
+				<tr>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>									
+				</tr>													
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="yszk">
+				<tr>
+					<td class="table-label">应收账款(元)</td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('yszk','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('yszk','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+					</td>
+					<td class="table-label">预收账款(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('yszk','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('yszk','dqdcWd_zcfzb')" class="btn btn-info btn-mini"/>
+					</td>								
+				</tr>		
+				<tr>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>									
+				</tr>													
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="yfkx">
+				<tr>
+					<td class="table-label">预付款项(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('yfkx','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('yfkx','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+					</td>
+					<td class="table-label">短期借款(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('yfkx','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('yfkx','dqdcWd_zcfzb')" class="btn btn-info btn-mini"/>
+					</td>								
+				</tr>		
+				<tr>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>									
+				</tr>													
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="ch">
+				<tr>
+					<td class="table-label">存货(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('ch','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('ch','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+					</td>
+					<td class="table-label">社会集资(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('ch','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('ch','dqdcWd_zcfzb')" class="btn btn-info btn-mini"/>
+					</td>								
+				</tr>		
+				<tr>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>									
+				</tr>													
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list">
+				<tr>
+					<td class="table-label" style="width:162px;">流动资产(元) </td>
+					<td><input type="text" id=""/></td>
+					<td class="table-label" style="width:162px;">短期负债总计(元) </td>
+					<td><input type="text" id=""/></td>								
+				</tr>										
+			</table>
+		</div>
+		<div class="divBorder">
+			<table class="table-list" id="gdzc">
+				<tr>
+					<td class="table-label">固定资产 </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('gdzc','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('gdzc','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+					</td>
+					<td class="table-label">长期借款(元) </td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('gdzc','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('gdzc','dqdcWd_zcfzb')" class="btn btn-info btn-mini"/>
+					</td>								
+				</tr>
+				<tr>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>									
+				</tr>											
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="qt">
+				<tr>
+					<td class="table-label">其他经营资产</td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('qt','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('qt','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+					</td>
+					<td class="table-label">其他</td>
+					<td>
+						<input type="text" id=""/>
+						<input type="button" value="+" onclick="addTd('qt','dqdcWd_zcfzb')" class="btn btn-info btn-mini" />
+						<input type="button" value="-" onclick="removeTd('qt','dqdcWd_zcfzb')" class="btn btn-info btn-mini"/>
+					</td>								
+				</tr>
+				<tr>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>									
+				</tr>											
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="qt">
+				<tr>
+					<td style="width:170px;"></td>
+					<td></td>
+					<td class="table-label" style="width:162px;">长期负债总计 </td>
+					<td><input type="text" id=""/></td>								
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td class="table-label">总负债  </td>
+					<td><input type="text" id=""/></td>								
+				</tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td class="table-label">权益  </td>
+					<td><input type="text" id=""/></td>								
+				</tr>
+				<tr>
+					<td class="table-label">总资产 </td>
+					<td><input type="text" id=""/></td>
+					<td class="table-label">负债及所有者权益 </td>
+					<td><input type="text" id=""/></td>								
+				</tr>											
+
+			</table>
+		</div>	
+		<div class="divBorder">
+			<table class="table-list" id="qt">
+				<tr>
+					<td class="table-label" style="width:162px;">流动比率% </td>
+					<td><input type="text" id=""/></td>
+					<td class="table-label" style="width:162px;">负债率% </td>
+					<td><input type="text" id=""/></td>								
+				</tr>
+			</table>
+		</div>						
+	<!--*****************************************申请信息**************************************************-->
+		<div class="divBorder">
+			<table class="table-list" id="qt">
+				<tr>
+					<td class="table-label" style="width:162px;">表外项目</td>
+					<td colspan="3"><textarea id=""></textarea></td>								
+				</tr>
+				<tr>
+					<td class="table-label">对资产负债表的其他评价</td>
+					<td colspan="3"><textarea id=""></textarea></td>								
+				</tr>
+				<tr>
+					<td class="table-label">经营历史与资本积累</td>
+					<td colspan="3"><textarea id=""></textarea></td>								
+				</tr>
+				<tr>
+					<td class="table-label">对现状的评价：经营组织和市场情况</td>
+					<td colspan="3"><textarea id=""></textarea></td>								
+				</tr>
+				<tr>
+					<td class="table-label">对现状的评价：财务信息</td>
+					<td colspan="3"><textarea id=""></textarea></td>								
+				</tr>
+				<tr>
+					<td class="table-label">过去12个月内的投资</td>
+					<td style="width:310px;text-align:center;">
+						业务方面<br/>
+						<textarea id="" style="width:290px;"></textarea>
+					</td>	
+					<td style="width:310px;text-align:center;">
+						私人方面<br/>
+						<textarea id="" style="width:290px;"></textarea>
+					</td>	
+					<td></td>						
+				</tr>
+				<tr>
+					<td class="table-label">未来12个月计划的投资</td>
+					<td style="width:310px;text-align:center;">
+						业务方面<br/>
+						<textarea id="" style="width:290px;"></textarea>
+					</td>	
+					<td style="width:310px;text-align:center;">
+						私人方面<br/>
+						<textarea id="" style="width:290px;"></textarea>
+					</td>	
+					<td></td>						
+				</tr>
+				<tr>
+					<td class="table-label">客户在家庭或在社会经济网中的状况 </td>
+					<td colspan="3"><textarea id=""></textarea></td>								
+				</tr>
+			</table>
+		</div>	
+		<input type="submit" value="保存" class="btn btn-info"/>
+		<input type="submit" value="打印" class="btn btn-info"/>
+	</form>
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/process.js"></script>
+	<script type="text/javascript"></script>
+</body>
+</html>

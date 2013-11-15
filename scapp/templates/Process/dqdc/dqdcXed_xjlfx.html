@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<style type="text/css">	
+		input[type=text]{width:40px;padding:0;}	
+		input.btn-mini{width:20px;}
+		textarea{width:80%;}
+		.table-list .table-label{width:50px;padding:0;}
+		.insideTb td{width:60px;}	
+	</style>
+</head>
+
+<body>	
+	<form class="content">
+	<!--*****************************************现金流分析**************************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">现金流分析</span>
+		<select id="" onchange="xjlfx(this)">			
+			<option value="1">业务展望</option>
+			<option value="0">业务历史</option>
+		</select>
+		<div class="divBorder">
+			<table class="table-list" id="">
+				<tr class="center" id="ywls" style="display:none">
+					<td class="table-label" style="width:230px">以人民币为计价单位</td>								
+					<td class="table-label">-12</td>
+					<td class="table-label">-11</td>
+					<td class="table-label">-10</td>
+					<td class="table-label">-9</td>
+					<td class="table-label">-8</td>
+					<td class="table-label">-7</td>
+					<td class="table-label">-6</td>
+					<td class="table-label">-5</td>
+					<td class="table-label">-4</td>
+					<td class="table-label">-3</td>
+					<td class="table-label">-2</td>
+					<td class="table-label">-1</td>
+					<td class="table-label">0</td>
+					<td class="table-label" rowspan="2">合计</td>		
+				</tr>	
+				<tr class="center" id="ywzw">
+					<td class="table-label" style="width:230px">以人民币为计价单位</td>								
+					<td class="table-label">0</td>
+					<td class="table-label">1</td>
+					<td class="table-label">2</td>
+					<td class="table-label">3</td>
+					<td class="table-label">4</td>
+					<td class="table-label">5</td>
+					<td class="table-label">6</td>
+					<td class="table-label">7</td>
+					<td class="table-label">8</td>
+					<td class="table-label">9</td>
+					<td class="table-label">10</td>
+					<td class="table-label">11</td>
+					<td class="table-label">12</td>
+					<td class="table-label" rowspan="2">合计</td>		
+				</tr>	
+				<tr class="center">
+					<td class="table-label"></td>								
+					<td class="table-label">调查前</td>
+					<td class="table-label">调查后</td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>
+					<td class="table-label"></td>	
+				</tr>
+				<tr class="center">
+					<td class="table-label">月初现金(10)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">现金销售额(元)</td>								
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>		
+					<td>0</td>				
+				</tr>
+				<tr class="center">
+					<td class="table-label">应收账款回收(元)</td>								
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>		
+					<td>0</td>				
+				</tr>
+				<tr class="center">
+					<td class="table-label">客户预付款(元)</td>								
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>		
+					<td>0</td>				
+				</tr>
+				<tr class="center">
+					<td class="table-label">经营现金流入总额(1)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">现金购买原材料，服务，货物(元)</td>								
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>		
+					<td>0</td>				
+				</tr>
+				
+				<tr class="center">
+					<td class="table-label">应付账款的支付(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">购货的预付款项(原材料，服务费)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">经营现金流出总额(2)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">工资及劳保(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">税收(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">交通费用(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">租金(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">维护费(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">水电费(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">广告费(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">交际费(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr>
+					<td colspan="15">
+						<table class="table-list" id="qtcb">
+							<tr class="center">
+								<td style="width:120px" class="table-label">
+									其他费用息<br/>
+									<input type="button" value="+" onclick="addTd('qtfyx','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+									<input type="button" value="-" onclick="removeTd('qtfyx','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+								</td>								
+								<td>
+									<table id="qtfyx" >
+										<tr class="insideTb">
+											<td style="width:225px"><input type="text" id="" style="width:80%"/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td ><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td style="width:80px">0</td>	
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>						
+					</td>			
+				</tr>
+				<tr class="center">
+					<td class="table-label">总固定成本(3)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">付款总额(4)=(2)+(3)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">营业活动现金净流量(5)=(1)-(4)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">固定资产投资(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">固定资产出售(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">投资活动总现金流(6)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">银行贷款(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr>
+					<td colspan="15">
+						<table class="table-list" id="qtcb">
+							<tr class="center">
+								<td style="width:120px" class="table-label">
+									其他借款<br/>
+									<input type="button" value="+" onclick="addTd('qtjk','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+									<input type="button" value="-" onclick="removeTd('qtjk','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+								</td>								
+								<td>
+									<table id="qtjk" >
+										<tr class="insideTb">
+											<td style="width:225px"><input type="text" id="" style="width:80%"/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td ><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td style="width:80px">0</td>	
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>						
+					</td>			
+				</tr>
+				<tr class="center">
+					<td class="table-label">偿还银行贷款本金及利息</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr>
+					<td colspan="15">
+						<table class="table-list" id="qtcb">
+							<tr class="center">
+								<td style="width:120px" class="table-label">
+									偿还其他借款<br/>
+									<input type="button" value="+" onclick="addTd('chqtjk','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+									<input type="button" value="-" onclick="removeTd('chqtjk','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+								</td>								
+								<td>
+									<table id="chqtjk" >
+										<tr class="insideTb">
+											<td style="width:225px"><input type="text" id="" style="width:80%"/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td ><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td style="width:80px">0</td>	
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>						
+					</td>			
+				</tr>
+				<tr class="center">
+					<td class="table-label">融资活动总现金流(7)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>
+				<tr>
+					<td colspan="15">
+						<table class="table-list" id="qtcb">
+							<tr class="center">
+								<td style="width:120px" class="table-label">
+									其他借款现金来源<br/>
+									<input type="button" value="+" onclick="addTd('qtjkxjly','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+									<input type="button" value="-" onclick="removeTd('qtjkxjly','dqdcXed_xjlfx')" class="btn btn-info btn-mini"/>
+								</td>								
+								<td>
+									<table id="qtjkxjly" >
+										<tr class="insideTb">
+											<td style="width:225px"><input type="text" id="" style="width:80%"/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td ><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td><input type="text" id=""/></td>
+											<td style="width:80px">0</td>	
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>						
+					</td>			
+				</tr>
+				<tr class="center">
+					<td class="table-label">家庭开支(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">私人使用资金(元)</td>					
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td><input type="text" id=""/></td>
+					<td>0</td>					
+				</tr>	
+				<tr class="center">
+					<td class="table-label">私人现金流总额(8)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">累积现金(9)=(5)+(6)+(7)+(8)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+				<tr class="center">
+					<td class="table-label">期末现金(11)=(10)+(9)</td>								
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>
+					<td class="table-label"><input type="text" id=""/></td>		
+					<td class="table-label">0</td>					
+				</tr>
+			</table>
+		</div>		
+	<!--*****************************************现金流分析及说明*************************************-->
+		<i class="icon-bookmark"></i><span class="titletip">现金流分析及说明</span>		
+		<div class="divBorder">
+			<table class="table-list">
+				<tr>
+					<td class="table-label" style="width:180px">0-12期 现金流出 / 现金流入</td>		
+					<td class="table-label" style="width:80px" rowspan="4">现金流说明</td>	
+					<td rowspan="4"><textarea id=""></textarea></td>
+				</tr>	
+				<tr>					
+					<td style="text-align:right">%</td>
+				</tr>	
+				<tr class="table-label">					
+					<td>销售成本率</td>
+				</tr>
+				<tr>					
+					<td style="text-align:right">%</td>
+				</tr>					
+			</table>
+		</div>		
+		<input type="submit" value="保存" class="btn btn-info"/>
+		<input type="button" value="打印" class="btn btn-info"/>
+	</form>
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/process.js"></script>
+	<script type="text/javascript"></script>
+</body>
+</html>

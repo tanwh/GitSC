@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<link href="/static/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+	<style type="text/css">
+		.table-list .table-label{width:140px;}
+	</style>
+	
+</head>
+
+<body onload="datepicker()">
+	<form class="content" method="POST" action="/Information/edit_company_customer/{{customer.id}}" target="_top">
+		
+		<div style="border:1px solid #94c1dc;" >
+		<!--**********************公司类**********************-->		
+			<table class="table-list">
+				<tr>
+					<td class="table-label">客户类型*</td>
+					<td width="34%">&nbsp;公司类</td>
+					<td class="table-label">客户编号*</td>
+					<td>
+						<input type="text" name="customer_no" value="{{customer.customer_no}}"/>
+					</td>								
+				</tr>
+				<tr>
+					<td class="table-label">公司名称*</td>
+					<td>
+						<input type="text" name="company_name" value="{{customer.company_name}}"/>
+					</td>	
+					<td class="table-label">负责管理信贷员*</td>
+					<td>
+						<input type="hidden" id="manager" name="manager" value="{{customer.manager}}"/>
+						<input type="text" id="manager_name" value="{{customer.user_for_company.login_name}}"/>
+						<input type="button" value="搜索" class="btn" onclick="$('.display-div').show();"/>
+						<div class="display-div" id="xdyss"><!--onmouseleave="setTimeout(function(){$('.display-div').hide();},3000)"-->
+							<i class="icon-bookmark"></i><span class="titletip">信贷员搜索</span>
+							<div style="border:1px solid #94c1dc;">
+								<table class="table-list">
+									<tr>
+										<td class="table-label">信贷员编号</td>
+										<td><input type="text"/></td>	
+										<td class="table-label">信贷员名称</td>
+										<td><input type="text"/></td>	
+									</tr>
+								</table>
+							</div>																		
+							<input type="button" value="关闭" class="btn btn-info btn-mini pull-right" onclick="$('.display-div').hide();"/>
+							<input type="button" value="搜索" class="btn btn-info btn-mini pull-right"/><br/>
+							<i class="icon-bookmark"></i><span class="titletip">信贷员列表</span>
+							<div style="border:1px solid #94c1dc;">
+								<table class="table-list">
+									<thead>
+										<tr>
+											<th>选择</th>	
+											<th>信贷员编号</th>												
+											<th>信贷员名称</th>												
+										</tr>
+									</thead>
+									<tbody class="center">
+										{%- for obj in user %}
+										<tr>
+											<td><input type="radio" name="xdy" onclick="get_name(this,'manager_name','manager')"/></td>	
+											<td>{{obj.id}}</td>												
+											<td>{{obj.login_name}}</td>												
+										</tr>		
+										{%- endfor %}											
+									</tbody>
+								</table>
+							</div>
+						</div><!--/display-div-->
+					</td>	
+				</tr>
+				<tr>							
+					<td class="table-label">法人代表*</td>
+					<td colspan="3"><input type="text" name="frdb" value="{{customer.frdb}}"/></td>								
+				</tr>
+				<tr>
+					<td class="table-label">营业执照号码*</td>
+					<td><input type="text" name="yyzz" value="{{customer.yyzz}}"/></td>	
+					<td class="table-label">营业执照发证机关*</td>
+					<td><input type="text" name="yyzz_fzjg" value="{{customer.yyzz_fzjg}}"/></td>	
+				</tr>
+				<tr>
+					<td class="table-label">税务登记证号码*</td>
+					<td><input type="text" name="swdjz" value="{{customer.swdjz}}"/></td>	
+					<td class="table-label">税务登记证发证机关*</td>
+					<td><input type="text" name="swdjz_fzjg" value="{{customer.swdjz_fzjg}}"/></td>	
+				</tr>
+				<!--<tr>
+					<td class="table-label">组织机构代码证号码*</td>
+					<td><input type="text"/></td>	
+					<td class="table-label">发证机关*</td>
+					<td><input type="text"/></td>	
+				</tr>-->
+				<tr>
+					<td class="table-label">公司注册资金（元）*</td>
+					<td><input type="text" name="gszczj" value="{{customer.gszczj}}"/></td>	
+					<td class="table-label">公司营业范围*</td>
+					<td><input type="text" name="gsyyfw" value="{{customer.gsyyfw}}"/></td>	
+				</tr>
+				<tr>
+					<td class="table-label">公司成立日期*</td>
+					<td><input type="text" name="gsclrq" class="datepicker" value="{{customer.gsclrq.strftime('%Y-%m-%d')}}"/>yyyy-mm-dd</td>	
+					<td class="table-label">公司注册类型*</td>
+					<td>
+						<select name="gszclx">
+							{%- for obj in regisiter_type %}
+								{%- if obj.id == customer.gszclx %}
+									<option value="{{obj.id}}" selected>{{obj.type_name}}</option>
+								{%- else %}	
+									<option value="{{obj.id}}">{{obj.type_name}}</option>
+								{%- endif %}	
+							{%- endfor %}
+						</select>
+					</td>	
+				</tr>
+				<tr>							
+					<td class="table-label">基本户帐号*</td>
+					<td colspan="3"><input type="text" name="jbhzh" value="{{customer.jbhzh}}"/></td>								
+				</tr>
+				<tr>							
+					<td class="table-label">公司注册地址</td>
+					<td colspan="3"><input type="text" name="zcdz" value="{{customer.zcdz}}" class="long"/></td>								
+				</tr>
+				<tr>							
+					<td class="table-label">现地址</td>
+					<td colspan="3"><input type="text" name="xdz" value="{{customer.xdz}}" class="long"/></td>								
+				</tr>
+				<tr>							
+					<td class="table-label">办公地址</td>
+					<td colspan="3"><input type="text" name="bgdz" value="{{customer.bgdz}}" class="long"/></td>								
+				</tr>
+				<tr>							
+					<td class="table-label">其他地址</td>
+					<td colspan="3"><input type="text" name="qtdz" value="{{customer.qtdz}}" class="long"/></td>								
+				</tr>
+				<tr>							
+					<td class="table-label">家庭情况</td>
+					<td colspan="3"><input type="text" name="family" value="{{customer.family}}" class="long"/></td>								
+				</tr>
+				<tr>							
+					<td class="table-label">教育程度</td>
+					<td>
+						<select id="education" name="education">
+							{%- for obj in education %}
+								{%- if obj.id == customer.education %}
+									<option value="{{obj.id}}" selected>{{obj.type_name}}</option>
+								{%- else %}	
+									<option value="{{obj.id}}">{{obj.type_name}}</option>
+								{%- endif %}		
+							{%- endfor %}
+						</select>
+					</td>		
+					<td class="table-label">固定电话</td>
+					<td><input type="text" name="telephone" value="{{customer.telephone}}"/></td>							
+				</tr>
+				<tr>							
+					<td class="table-label">手机</td>
+					<td><input type="text" name="mobile" value="{{customer.mobile}}"/></td>		
+					<td class="table-label">联系电话</td>
+					<td><input type="text" name="contact_phone" value="{{customer.contact_phone}}"/></td>							
+				</tr>
+				<tr>							
+					<td class="table-label">E-mail</td>
+					<td><input type="text" name="email" value="{{customer.email}}"/></td>		
+					<td class="table-label">是否激活</td>
+					<td>
+						{%- if customer.is_active == "1" %}
+							<label><input type="radio" name="is_active" checked value="1"/>是</label>
+							<label><input type="radio" name="is_active" value="0"/>否</label>
+						{%- else %}	
+							<label><input type="radio" name="is_active" value="1"/>是</label>
+							<label><input type="radio" name="is_active" checked value="0"/>否</label>
+						{%- endif %}
+					</td>							
+				</tr>
+			</table>			
+		</div>
+		<span class="point">*为必填字段</span><br/>
+		<input type="submit" value="提交" class="btn btn-info"/>
+		<input type="reset" value="重置" class="btn btn-info" />
+	</form>
+
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>

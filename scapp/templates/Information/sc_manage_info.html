@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>	
+	<meta charset="utf-8">
+	<title>小微贷款业务管理系统</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Charisma, a fully featured, responsive, HTML5, Bootstrap admin template.">
+	<meta name="author" content="Muhammad Usman">
+
+	<!-- The styles -->
+	<link href="/static/css/bootstrap.css" rel="stylesheet">
+	<link href="/static/css/main.css" rel="stylesheet">
+	<link href="/static/css/jquery-ui-1.8.21.custom.css" rel="stylesheet">
+	<style type="text/css">	
+		.table-list .table-label{width:140px;}
+	</style>
+	
+</head>
+
+<body onload="datepicker()" >	
+	<div class="content">
+		<div id="tab1">
+			<i class="icon-bookmark"></i><span class="titletip">经营信息列表</span>			
+			<div style="margin-bottom:5px;">
+				<a type="button" class="btn btn-info" href="#" onclick="$('#tab1').hide();$('#tab2').show();doubleIframe('jyxx');">新增</a>				
+			</div>
+			<div style="border:1px solid #94c1dc;">				
+				<table class="table-list" cellspacing="10" id="uesr-list">
+					<thead>
+						<tr>
+							<th><input type="button" class="btn btn-info btn-mini" value="反选" style="margin:0;" onclick="ChkAllClick()"/></th>
+							<th>业务名称</th>							
+							<th>所属行业</th>
+							<th>业务描述</th>
+							<th>经营性质</th>
+							<th>持股比例</th>
+							<th>操作</th>
+						</tr>
+					</thead>
+					<tbody class="center">
+						{%- for obj in manege_info %}
+						<tr>
+							<td><input type="checkbox" onclick="changeColor(this)" name="checkbox"/></td>							
+							<td>{{obj.business_name}}</td>													
+							<td>{{obj.industry_type_name.type_name}}</td>
+							<td>{{obj.business_description}}</td>
+							<td>{{obj.business_type_name.type_name}}</td>
+							<td>{{obj.stake}}</td>
+							<td>
+								<input type="button" class="btn btn-warning btn-mini" value="删除"/>
+							</td>
+						</tr>
+						{%- endfor %}															
+					</tbody>
+				</table>
+			</div>
+		</div><!-- /经营信息列表 -->
+		<!-- 新增经营信息列表 -->
+		<div id="tab2" style="display:none;">
+			<i class="icon-bookmark"></i><span class="titletip">新增经营信息</span>
+			<form method="POST" action="/Information/sc_asset_info/{{customer.customer_type}}/{{customer.id}}" target="_top">										
+				<div style="border:1px solid #94c1dc;">				
+					<table class="table-list">
+						<tr>
+							<td class="table-label">业务名称*</td>
+							<td><input type="text" name="business_name"/></td>
+							<td class="table-label">所属行业*</td>
+							<td>
+								<select name="industry">
+									{%- for obj in industry %}
+									<option value='{{obj.id}}'>{{obj.type_name}}</option>
+									{%- endfor %}
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="table-label">业务描述</td>
+							<td colspan="3"><input type="text" style="width:90%;" name="business_description"/></td>
+						</tr>
+						<tr>
+							<td class="table-label">经营性质*</td>										
+							<td>
+								<select name="business_type">
+									{%- for obj in business_type %}
+									<option value='{{obj.id}}'>{{obj.type_name}}</option>
+									{%- endfor %}											
+								</select>
+							</td>										
+							<td class="table-label">持股比例*</td>
+							<td><input type="text" style="width:30px;" name="stake"/>%</td>
+						</tr>
+						<tr>
+							<td class="table-label">经营地址*</td>										
+							<td colspan="3"><input type="text" style="width:90%;" name="business_address"/></td>
+						</tr>
+						<tr>
+							<td class="table-label">平均年收入（元）</td>										
+							<td><input type="text" name="annual_income"/></td>										
+							<td class="table-label">平均月成本（元）</td>
+							<td><input type="text" name="monthly_income"/></td>
+						</tr>
+						<tr>
+							<td class="table-label">开始经营日期</td>										
+							<td><input type="text" class="datepicker" name="establish_date"/>yyyy-mm-dd</td>				<td class="table-label">雇员人数</td>
+							<td><input type="text" name="employees"/></td>
+						</tr>
+						<tr>
+							<td class="table-label">责任人名称*</td>										
+							<td><input type="text" name="manager_name"/></td>										
+							<td class="table-label">证件名称</td>
+							<td>
+								<select name="credentials_type">
+									{%- for obj in credentials_type %}
+									<option value='{{obj.id}}'>{{obj.type_name}}</option>
+									{%- endfor %}	
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td class="table-label">证件号码*</td>										
+							<td><input type="text" name="credentials_no"/></td>										
+							<td class="table-label">发证机关*</td>
+							<td><input type="text" name="credentials_org"/></td>
+						</tr>
+					</table>
+				</div>
+				<span class="point">*为必填字段</span><br/>
+				<input type="submit" value="提交" class="btn btn-info"/>
+				<input type="button" value="返回" class="btn btn-info" onclick="$('#tab2').hide();$('#tab1').show();doubleIframe('jyxx');"/>
+			</form>
+		</div><!-- /新增经营信息列表 -->
+	</div><!--/content -->
+	
+	<script src="/static/js/jquery-1.7.2.min.js"></script>
+	<script src="/static/js/bootstrap.min.js"></script>
+	<script src="/static/js/script.js"></script>
+	<script src="/static/js/jquery-ui-1.8.21.custom.min.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+</body>
+</html>
